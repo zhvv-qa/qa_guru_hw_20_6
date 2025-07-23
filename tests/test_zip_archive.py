@@ -2,7 +2,7 @@ import csv
 import zipfile
 from openpyxl.reader.excel import load_workbook
 from pypdf import PdfReader
-from script_os import ZIP_DIR
+from script_os1 import ZIP_DIR
 
 
 def test_pdf_file():
@@ -22,13 +22,13 @@ def test_xlsx():
             name = "February"
             assert name in value
 
-def test_csv()
+def test_csv():
     with zipfile.ZipFile(ZIP_DIR) as zip_file:
         with zip_file.open("example.csv") as csv_file:
             content = csv_file.read().decode("utf-8-sig")
             csvreader = list(csv.reader(content.splitlines()))
             fourth_row = csvreader[4]
-            assert fourth_row[0] == "Pocket Money,,,,,"
+            assert fourth_row[0] == "Pocket Money"
 
 
 
